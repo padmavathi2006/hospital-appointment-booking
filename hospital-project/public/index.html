@@ -1,0 +1,206 @@
+<!-- This line declares the document type so the browser renders the page in modern HTML mode. -->
+<!DOCTYPE html>
+<!-- This line starts the HTML document and sets the page language to English. -->
+<html lang="en">
+<!-- This line starts the head section that stores page settings and linked files. -->
+<head>
+    <!-- This line sets the character encoding so text displays correctly. -->
+    <meta charset="UTF-8">
+    <!-- This line makes the page responsive on mobile and desktop screens. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- This line sets the page title shown in the browser tab. -->
+    <title>Hospital Appointment Booking System</title>
+    <!-- This line loads Bootstrap CSS from a CDN for professional responsive styling. -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- This line loads Font Awesome icons from a CDN for modern interface icons. -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+    <!-- This line loads the custom CSS file for project-specific design. -->
+    <link href="/css/style.css" rel="stylesheet">
+</head>
+<!-- This line starts the body and marks this page as the home page for JavaScript logic. -->
+<body data-page="home">
+    <!-- This line starts the top navigation bar section. -->
+    <nav class="navbar navbar-expand-lg navbar-dark site-navbar fixed-top">
+        <!-- This line creates a centered Bootstrap container for navbar content. -->
+        <div class="container">
+            <!-- This line shows the brand title on the left side of the navbar. -->
+            <a class="navbar-brand fw-bold" href="/"><i class="fa-solid fa-hospital me-2"></i>HospitalCare</a>
+            <!-- This line creates the mobile toggle button for small screens. -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+                <!-- This line shows the default Bootstrap navbar icon. -->
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- This line starts the collapsible navbar menu. -->
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <!-- This line aligns the navigation links to the right side. -->
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <!-- This line creates the Home link. -->
+                    <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
+                    <!-- This line creates the Login link. -->
+                    <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+                    <!-- This line creates the Register link. -->
+                    <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
+                    <!-- This line creates the About link that scrolls to the about section. -->
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- This line starts the hero section with the hospital background image. -->
+    <header class="hero-section">
+        <!-- This line creates a centered content container inside the hero section. -->
+        <div class="container">
+            <!-- This line creates a responsive row for hero content. -->
+            <div class="row min-vh-100 align-items-center">
+                <!-- This line creates the main text column of the hero section. -->
+                <div class="col-lg-7">
+                    <!-- This line shows a small badge-like text above the heading. -->
+                    <p class="hero-tag">Smart, Simple and Professional Care Booking</p>
+                    <!-- This line shows the main heading of the landing page. -->
+                    <h1 class="display-4 fw-bold text-white">Book hospital appointments with speed, safety and confidence.</h1>
+                    <!-- This line shows a supporting paragraph under the main heading. -->
+                    <p class="lead text-white-50 mb-4">This system helps patients find doctors, reserve slots, manage appointment history and gives admins a clean dashboard to manage doctors and reports.</p>
+                    <!-- This line starts a button group for hero actions. -->
+                    <div class="d-flex flex-wrap gap-3">
+                        <!-- This line creates the main call-to-action button. -->
+                        <a class="btn btn-primary btn-lg px-4" href="/register"><i class="fa-solid fa-user-plus me-2"></i>Get Started</a>
+                        <!-- This line creates the secondary button for login. -->
+                        <a class="btn btn-outline-light btn-lg px-4" href="/login"><i class="fa-solid fa-right-to-bracket me-2"></i>Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- This line starts the feature section below the hero area. -->
+    <section class="py-5 bg-white">
+        <!-- This line creates a centered content container. -->
+        <div class="container">
+            <!-- This line creates the section heading row. -->
+            <div class="row mb-4">
+                <!-- This line creates the full-width heading column. -->
+                <div class="col-12 text-center">
+                    <!-- This line shows the feature section title. -->
+                    <h2 class="section-title">Core Modules Included</h2>
+                    <!-- This line shows the feature section subtitle. -->
+                    <p class="text-muted">A complete system with real-world modules for administration and patient booking.</p>
+                </div>
+            </div>
+            <!-- This line starts the cards row for features. -->
+            <div class="row g-4">
+                <!-- This line creates the first feature card column. -->
+                <div class="col-md-6 col-lg-3">
+                    <!-- This line starts the first feature card. -->
+                    <div class="card feature-card h-100 border-0 shadow-sm">
+                        <!-- This line starts the feature card body. -->
+                        <div class="card-body">
+                            <!-- This line shows the feature icon. -->
+                            <div class="feature-icon"><i class="fa-solid fa-user-shield"></i></div>
+                            <!-- This line shows the feature title. -->
+                            <h5>Authentication</h5>
+                            <!-- This line explains the feature. -->
+                            <p class="text-muted mb-0">Patient registration, patient login, admin login and session-based access control.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- This line creates the second feature card column. -->
+                <div class="col-md-6 col-lg-3">
+                    <!-- This line starts the second feature card. -->
+                    <div class="card feature-card h-100 border-0 shadow-sm">
+                        <!-- This line starts the feature card body. -->
+                        <div class="card-body">
+                            <!-- This line shows the feature icon. -->
+                            <div class="feature-icon"><i class="fa-solid fa-user-doctor"></i></div>
+                            <!-- This line shows the feature title. -->
+                            <h5>Doctor Management</h5>
+                            <!-- This line explains the feature. -->
+                            <p class="text-muted mb-0">Add doctors, update doctor schedule and specialization, and remove doctors from active use.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- This line creates the third feature card column. -->
+                <div class="col-md-6 col-lg-3">
+                    <!-- This line starts the third feature card. -->
+                    <div class="card feature-card h-100 border-0 shadow-sm">
+                        <!-- This line starts the feature card body. -->
+                        <div class="card-body">
+                            <!-- This line shows the feature icon. -->
+                            <div class="feature-icon"><i class="fa-solid fa-calendar-check"></i></div>
+                            <!-- This line shows the feature title. -->
+                            <h5>Appointments</h5>
+                            <!-- This line explains the feature. -->
+                            <p class="text-muted mb-0">Book appointments, stop double booking, cancel visits and review past appointment history.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- This line creates the fourth feature card column. -->
+                <div class="col-md-6 col-lg-3">
+                    <!-- This line starts the fourth feature card. -->
+                    <div class="card feature-card h-100 border-0 shadow-sm">
+                        <!-- This line starts the feature card body. -->
+                        <div class="card-body">
+                            <!-- This line shows the feature icon. -->
+                            <div class="feature-icon"><i class="fa-solid fa-chart-column"></i></div>
+                            <!-- This line shows the feature title. -->
+                            <h5>Reports</h5>
+                            <!-- This line explains the feature. -->
+                            <p class="text-muted mb-0">View all appointments and basic system statistics through an admin-friendly dashboard.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- This line starts the about section. -->
+    <section class="py-5 about-section" id="about">
+        <!-- This line creates a centered content container. -->
+        <div class="container">
+            <!-- This line creates a responsive row for the about content. -->
+            <div class="row align-items-center g-4">
+                <!-- This line creates the left column with text. -->
+                <div class="col-lg-6">
+                    <!-- This line shows the about section title. -->
+                    <h2 class="section-title">About This Project</h2>
+                    <!-- This line shows the first paragraph for the about section. -->
+                    <p class="text-muted">The Hospital Appointment Booking System is a full-stack learning project built using HTML, CSS, Bootstrap, JavaScript, Node.js core modules, and AWS DynamoDB. It is designed to feel professional while keeping the code structure simple for students.</p>
+                    <!-- This line shows the second paragraph for the about section. -->
+                    <p class="text-muted mb-0">Patients can register, log in, browse doctors, book appointments and track their history. Admins can manage doctor records, review all appointments and see important system statistics in one dashboard.</p>
+                </div>
+                <!-- This line creates the right column with quick highlights. -->
+                <div class="col-lg-6">
+                    <!-- This line starts the highlight card. -->
+                    <div class="card border-0 shadow-lg rounded-4">
+                        <!-- This line starts the highlight card body. -->
+                        <div class="card-body p-4">
+                            <!-- This line starts the list of highlights. -->
+                            <div class="d-flex align-items-center mb-3"><i class="fa-solid fa-circle-check text-success me-3"></i><span>Manual routing with Node.js `http`, `fs` and `url` modules</span></div>
+                            <!-- This line shows the second highlight. -->
+                            <div class="d-flex align-items-center mb-3"><i class="fa-solid fa-circle-check text-success me-3"></i><span>AWS DynamoDB integration using the JavaScript v3 SDK</span></div>
+                            <!-- This line shows the third highlight. -->
+                            <div class="d-flex align-items-center mb-3"><i class="fa-solid fa-circle-check text-success me-3"></i><span>Form validation with clear error handling</span></div>
+                            <!-- This line shows the fourth highlight. -->
+                            <div class="d-flex align-items-center"><i class="fa-solid fa-circle-check text-success me-3"></i><span>Admin and patient workflows inside one complete project</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- This line starts the footer section. -->
+    <footer class="py-4 footer-dark">
+        <!-- This line creates a centered container for footer content. -->
+        <div class="container text-center text-white-50">
+            <!-- This line shows the footer copyright text. -->
+            <p class="mb-0">Hospital Appointment Booking System | Built for 2nd-year Degree students</p>
+        </div>
+    </footer>
+
+    <!-- This line loads Bootstrap JavaScript for navbar collapse and other components. -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- This line loads the shared frontend JavaScript file. -->
+    <script src="/js/script.js"></script>
+</body>
+</html>

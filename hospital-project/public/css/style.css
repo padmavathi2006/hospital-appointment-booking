@@ -1,0 +1,310 @@
+/* This line defines global color variables so the design stays consistent across the app. */
+:root {
+    /* This line stores the main brand color used for important buttons and highlights. */
+    --primary-color: #0f6d83;
+    /* This line stores the darker brand shade used for gradients and deep accents. */
+    --primary-dark: #0a4157;
+    /* This line stores a bright accent color used for attention areas. */
+    --accent-color: #19a7b8;
+    /* This line stores the light page background color. */
+    --light-color: #f5fbfd;
+    /* This line stores the dark text color for good readability. */
+    --dark-color: #1b263b;
+}
+
+/* This line styles the entire page body for typography and background. */
+body {
+    /* This line sets the font family to a clean modern stack. */
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    /* This line applies the default text color. */
+    color: var(--dark-color);
+    /* This line applies the default page background color. */
+    background: var(--light-color);
+}
+
+/* This line styles the shared navigation bar. */
+.site-navbar {
+    /* This line adds a transparent dark gradient behind the navbar. */
+    background: linear-gradient(90deg, rgba(10, 65, 87, 0.95), rgba(15, 109, 131, 0.85));
+    /* This line adds a soft shadow for depth. */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* This line styles the large hero section on the landing page. */
+.hero-section {
+    /* This line layers a dark overlay over the hospital background image for readable text. */
+    background: linear-gradient(rgba(4, 24, 34, 0.68), rgba(4, 24, 34, 0.75)), url("../images/hospital-bg.svg");
+    /* This line keeps the background image centered. */
+    background-position: center;
+    /* This line makes the background image cover the whole section. */
+    background-size: cover;
+    /* This line prevents the background image from repeating. */
+    background-repeat: no-repeat;
+}
+
+/* This line styles the small text above the hero heading. */
+.hero-tag {
+    /* This line displays the text like a highlighted badge. */
+    display: inline-block;
+    /* This line adds spacing inside the badge. */
+    padding: 0.6rem 1rem;
+    /* This line curves the badge corners. */
+    border-radius: 999px;
+    /* This line gives the badge a translucent white background. */
+    background: rgba(255, 255, 255, 0.12);
+    /* This line changes the badge text color to white. */
+    color: #ffffff;
+    /* This line adds spacing below the badge. */
+    margin-bottom: 1.25rem;
+}
+
+/* This line styles section titles used across the site. */
+.section-title {
+    /* This line makes the section title bold and noticeable. */
+    font-weight: 700;
+    /* This line adds some spacing below the title. */
+    margin-bottom: 0.75rem;
+}
+
+/* This line styles the feature cards on the home page. */
+.feature-card {
+    /* This line rounds the corners of the card. */
+    border-radius: 1rem;
+    /* This line adds a smooth hover transition. */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* This line styles the feature cards when the mouse hovers over them. */
+.feature-card:hover {
+    /* This line slightly lifts the card upward on hover. */
+    transform: translateY(-6px);
+    /* This line deepens the shadow on hover for a premium feel. */
+    box-shadow: 0 18px 40px rgba(15, 109, 131, 0.16) !important;
+}
+
+/* This line styles the circular icon area in feature cards. */
+.feature-icon {
+    /* This line creates a fixed square size for the icon container. */
+    width: 56px;
+    /* This line creates a fixed square size for the icon container. */
+    height: 56px;
+    /* This line centers the icon inside the box horizontally. */
+    display: flex;
+    /* This line centers the icon inside the box vertically. */
+    align-items: center;
+    /* This line centers the icon inside the box horizontally. */
+    justify-content: center;
+    /* This line makes the box circular. */
+    border-radius: 50%;
+    /* This line uses the brand gradient for the icon background. */
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    /* This line changes the icon color to white. */
+    color: #ffffff;
+    /* This line increases the icon size. */
+    font-size: 1.2rem;
+    /* This line adds spacing below the icon container. */
+    margin-bottom: 1rem;
+}
+
+/* This line styles the about section background. */
+.about-section {
+    /* This line adds a soft tinted background. */
+    background: linear-gradient(180deg, #eef8fb, #ffffff);
+}
+
+/* This line styles the dark footer area. */
+.footer-dark {
+    /* This line applies a dark professional background color. */
+    background: #102a43;
+}
+
+/* This line styles the shared authentication page background. */
+.auth-page {
+    /* This line applies a subtle gradient background for the login and register pages. */
+    background: linear-gradient(135deg, #edf8fb, #d8eef3);
+}
+
+/* This line styles the main authentication card. */
+.auth-card {
+    /* This line rounds the corners of the card. */
+    border-radius: 1.5rem;
+}
+
+/* This line styles the left visual panel used in auth pages. */
+.auth-visual {
+    /* This line applies a dark medical gradient background. */
+    background: linear-gradient(160deg, var(--primary-dark), var(--primary-color));
+    /* This line ensures the panel stretches full height. */
+    min-height: 100%;
+}
+
+/* This line styles the registration panel with a slightly different gradient. */
+.register-visual {
+    /* This line applies a brighter gradient to visually separate the register page. */
+    background: linear-gradient(160deg, #125b76, #19a7b8);
+}
+
+/* This line styles the illustration images on auth pages. */
+.auth-side-image {
+    /* This line limits the image height for balanced layout. */
+    max-height: 320px;
+    /* This line keeps the image aligned to the left. */
+    align-self: flex-start;
+}
+
+/* This line styles the small admin credential helper box. */
+.admin-info-box {
+    /* This line adds spacing inside the helper box. */
+    padding: 1rem;
+    /* This line rounds the box corners. */
+    border-radius: 1rem;
+    /* This line adds a light blue background. */
+    background: #eef8fb;
+    /* This line sets a smaller readable font size. */
+    font-size: 0.95rem;
+}
+
+/* This line styles text inputs, selects and textareas. */
+.form-control,
+.form-select {
+    /* This line rounds the form fields. */
+    border-radius: 0.9rem;
+    /* This line adds comfortable vertical spacing inside the fields. */
+    padding: 0.75rem 1rem;
+}
+
+/* This line styles primary buttons. */
+.btn-primary {
+    /* This line applies the main brand background color. */
+    background: var(--primary-color);
+    /* This line matches the border with the background color. */
+    border-color: var(--primary-color);
+}
+
+/* This line styles the hover state of primary buttons. */
+.btn-primary:hover {
+    /* This line darkens the button on hover. */
+    background: var(--primary-dark);
+    /* This line darkens the border on hover. */
+    border-color: var(--primary-dark);
+}
+
+/* This line styles the dashboard page background. */
+.dashboard-page {
+    /* This line applies a clean dashboard background color. */
+    background: #f4f9fb;
+}
+
+/* This line styles the welcome banner on the dashboard. */
+.dashboard-banner {
+    /* This line applies a rich gradient background. */
+    background: linear-gradient(120deg, var(--primary-dark), var(--accent-color));
+    /* This line rounds the banner corners. */
+    border-radius: 1.3rem;
+}
+
+/* This line styles the summary cards on the dashboard. */
+.summary-card {
+    /* This line rounds the summary card corners. */
+    border-radius: 1.2rem;
+    /* This line makes the card position relative so icons can be placed inside. */
+    position: relative;
+    /* This line hides overflow for a cleaner card appearance. */
+    overflow: hidden;
+}
+
+/* This line styles the label text inside summary cards. */
+.card-label {
+    /* This line changes the label color to a muted shade. */
+    color: #5c6f82;
+    /* This line reduces the bottom spacing. */
+    margin-bottom: 0.35rem;
+}
+
+/* This line styles the large icon shown in summary cards. */
+.card-icon {
+    /* This line positions the icon to the top-right side of the card. */
+    position: absolute;
+    /* This line places the icon from the top edge. */
+    top: 20px;
+    /* This line places the icon from the right edge. */
+    right: 20px;
+    /* This line enlarges the icon for better emphasis. */
+    font-size: 2rem;
+    /* This line uses a soft accent color for the icon. */
+    color: rgba(25, 167, 184, 0.32);
+}
+
+/* This line styles status badges created in JavaScript. */
+.status-badge {
+    /* This line adds spacing inside the badge. */
+    padding: 0.45rem 0.8rem;
+    /* This line rounds the badge corners. */
+    border-radius: 999px;
+    /* This line uses a small bold font for status text. */
+    font-size: 0.8rem;
+    /* This line makes the status text semi-bold. */
+    font-weight: 600;
+}
+
+/* This line styles booked status badges. */
+.status-booked {
+    /* This line adds a green-tinted background for booked items. */
+    background: #dff7e7;
+    /* This line adds a dark green text color. */
+    color: #17663a;
+}
+
+/* This line styles cancelled status badges. */
+.status-cancelled {
+    /* This line adds a red-tinted background for cancelled items. */
+    background: #fde3e3;
+    /* This line adds a dark red text color. */
+    color: #8f1d1d;
+}
+
+/* This line styles doctor cards created in JavaScript. */
+.doctor-card {
+    /* This line rounds the doctor card corners. */
+    border-radius: 1rem;
+}
+
+/* This line styles the small info pills inside doctor cards. */
+.doctor-pill {
+    /* This line displays the pills inline-block. */
+    display: inline-block;
+    /* This line adds spacing inside the pill. */
+    padding: 0.35rem 0.75rem;
+    /* This line rounds the pill corners. */
+    border-radius: 999px;
+    /* This line adds a soft blue background. */
+    background: #edf8fb;
+    /* This line adds dark teal text color. */
+    color: var(--primary-dark);
+    /* This line reduces the font size slightly. */
+    font-size: 0.85rem;
+}
+
+/* This line applies spacing to alert messages. */
+.alert {
+    /* This line rounds alert corners to match the design. */
+    border-radius: 1rem;
+}
+
+/* This line adjusts spacing and hero alignment for smaller devices. */
+@media (max-width: 991px) {
+    /* This line targets the hero section on tablets and mobiles. */
+    .hero-section {
+        /* This line adds top padding so content clears the fixed navbar. */
+        padding-top: 5rem;
+    }
+}
+
+/* This line adjusts typography for smaller phones. */
+@media (max-width: 576px) {
+    /* This line targets the hero heading on small screens. */
+    .hero-section h1 {
+        /* This line reduces the heading size for better mobile fit. */
+        font-size: 2.2rem;
+    }
+}

@@ -1,0 +1,105 @@
+<!-- This line declares the document type so the browser renders the page in modern HTML mode. -->
+<!DOCTYPE html>
+<!-- This line starts the HTML document and sets the page language to English. -->
+<html lang="en">
+<head>
+    <!-- This line sets the character encoding so text displays correctly. -->
+    <meta charset="UTF-8">
+    <!-- This line makes the page responsive on mobile and desktop screens. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- This line sets the page title shown in the browser tab. -->
+    <title>Register | Hospital Appointment Booking System</title>
+    <!-- This line loads Bootstrap CSS from a CDN for professional responsive styling. -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- This line loads Font Awesome icons from a CDN for modern interface icons. -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+    <!-- This line loads the custom CSS file for project-specific design. -->
+    <link href="/css/style.css" rel="stylesheet">
+</head>
+<!-- This line starts the body and marks this page as the register page for JavaScript logic. -->
+<body data-page="register" class="auth-page">
+    <!-- This line starts the main authentication section. -->
+    <section class="auth-section">
+        <!-- This line creates a centered container for the split authentication layout. -->
+        <div class="container py-5">
+            <!-- This line creates a row that centers the authentication card vertically. -->
+            <div class="row justify-content-center align-items-center min-vh-100">
+                <!-- This line creates the full-width column for the authentication card. -->
+                <div class="col-xl-10">
+                    <!-- This line starts the main authentication card. -->
+                    <div class="card auth-card border-0 shadow-lg overflow-hidden">
+                        <!-- This line creates a row inside the authentication card. -->
+                        <div class="row g-0">
+                            <!-- This line creates the left image panel. -->
+                            <div class="col-lg-6 auth-visual d-none d-lg-flex register-visual">
+                                <!-- This line wraps the left panel content. -->
+                                <div class="p-5 text-white w-100 d-flex flex-column justify-content-center">
+                                    <!-- This line shows the panel title. -->
+                                    <h2 class="fw-bold mb-3">Create Patient Account</h2>
+                                    <!-- This line shows the panel description. -->
+                                    <p class="mb-4 text-white-50">Register as a patient to browse doctors, book appointments and review your booking history.</p>
+                                    <!-- This line displays the registration side illustration. -->
+                                    <img src="/images/register-illustration.svg" class="img-fluid auth-side-image" alt="Medical registration illustration">
+                                </div>
+                            </div>
+                            <!-- This line creates the right form panel. -->
+                            <div class="col-lg-6 bg-white">
+                                <!-- This line wraps the form content. -->
+                                <div class="p-4 p-lg-5">
+                                    <!-- This line shows a small brand heading. -->
+                                    <a class="text-decoration-none text-primary fw-bold d-inline-block mb-3" href="/"><i class="fa-solid fa-hospital me-2"></i>HospitalCare</a>
+                                    <!-- This line shows the main form heading. -->
+                                    <h3 class="fw-bold mb-2">Patient Registration</h3>
+                                    <!-- This line shows the form subtitle. -->
+                                    <p class="text-muted mb-4">Fill all fields correctly to create your account.</p>
+                                    <!-- This line creates an alert box for registration messages. -->
+                                    <div id="registerMessage" class="alert d-none" role="alert"></div>
+                                    <!-- This line starts the registration form. -->
+                                    <form id="registerForm" novalidate>
+                                        <!-- This line starts the full name field group. -->
+                                        <div class="mb-3">
+                                            <!-- This line labels the full name field. -->
+                                            <label for="registerName" class="form-label">Full Name</label>
+                                            <!-- This line creates the full name input field. -->
+                                            <input type="text" id="registerName" class="form-control" placeholder="Enter your full name">
+                                        </div>
+                                        <!-- This line starts the email field group. -->
+                                        <div class="mb-3">
+                                            <!-- This line labels the email field. -->
+                                            <label for="registerEmail" class="form-label">Email Address</label>
+                                            <!-- This line creates the email input field. -->
+                                            <input type="email" id="registerEmail" class="form-control" placeholder="Enter your email">
+                                        </div>
+                                        <!-- This line starts the mobile number field group. -->
+                                        <div class="mb-3">
+                                            <!-- This line labels the mobile field. -->
+                                            <label for="registerMobile" class="form-label">Mobile Number</label>
+                                            <!-- This line creates the mobile input field. -->
+                                            <input type="text" id="registerMobile" class="form-control" placeholder="Enter 10-digit mobile number" maxlength="10">
+                                        </div>
+                                        <!-- This line starts the password field group. -->
+                                        <div class="mb-4">
+                                            <!-- This line labels the password field. -->
+                                            <label for="registerPassword" class="form-label">Password</label>
+                                            <!-- This line creates the password input field. -->
+                                            <input type="password" id="registerPassword" class="form-control" placeholder="Minimum 6 characters">
+                                        </div>
+                                        <!-- This line creates the submit button for the registration form. -->
+                                        <button type="submit" class="btn btn-primary w-100 py-2"><i class="fa-solid fa-user-plus me-2"></i>Create Account</button>
+                                    </form>
+                                    <!-- This line shows the login link below the form. -->
+                                    <p class="text-muted mt-4 mb-0">Already have an account? <a href="/login" class="text-decoration-none">Login here</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- This line loads Bootstrap JavaScript for interactive components. -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- This line loads the shared frontend JavaScript file. -->
+    <script src="/js/script.js"></script>
+</body>
+</html>

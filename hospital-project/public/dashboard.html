@@ -1,0 +1,246 @@
+<!-- This line declares the document type so the browser renders the page in modern HTML mode. -->
+<!DOCTYPE html>
+<!-- This line starts the HTML document and sets the page language to English. -->
+<html lang="en">
+<head>
+    <!-- This line sets the character encoding so text displays correctly. -->
+    <meta charset="UTF-8">
+    <!-- This line makes the page responsive on mobile and desktop screens. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- This line sets the page title shown in the browser tab. -->
+    <title>Dashboard | Hospital Appointment Booking System</title>
+    <!-- This line loads Bootstrap CSS from a CDN for professional responsive styling. -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- This line loads Font Awesome icons from a CDN for modern interface icons. -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+    <!-- This line loads the custom CSS file for project-specific design. -->
+    <link href="/css/style.css" rel="stylesheet">
+</head>
+<!-- This line starts the body and marks this page as the dashboard page for JavaScript logic. -->
+<body data-page="dashboard" class="dashboard-page">
+    <!-- This line starts the dashboard navigation bar. -->
+    <nav class="navbar navbar-expand-lg navbar-dark site-navbar sticky-top">
+        <!-- This line creates a centered container for navbar content. -->
+        <div class="container">
+            <!-- This line displays the dashboard brand name. -->
+            <a class="navbar-brand fw-bold" href="/"><i class="fa-solid fa-hospital me-2"></i>HospitalCare Dashboard</a>
+            <!-- This line starts the right side action area. -->
+            <div class="d-flex align-items-center gap-3">
+                <!-- This line shows the logged-in user badge. -->
+                <span id="dashboardUserBadge" class="badge rounded-pill bg-light text-dark px-3 py-2">Loading...</span>
+                <!-- This line creates the logout button. -->
+                <button id="logoutButton" class="btn btn-outline-light btn-sm"><i class="fa-solid fa-right-from-bracket me-2"></i>Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- This line starts the main dashboard content. -->
+    <main class="py-5">
+        <!-- This line creates a centered container for dashboard content. -->
+        <div class="container">
+            <!-- This line creates the dashboard welcome section. -->
+            <div class="row mb-4">
+                <!-- This line creates the full-width welcome card column. -->
+                <div class="col-12">
+                    <!-- This line starts the welcome card. -->
+                    <div class="card border-0 shadow-sm dashboard-banner">
+                        <!-- This line starts the welcome card body. -->
+                        <div class="card-body p-4">
+                            <!-- This line shows the dashboard title. -->
+                            <h2 id="dashboardHeading" class="fw-bold mb-2">Dashboard</h2>
+                            <!-- This line shows the dashboard subtitle. -->
+                            <p id="dashboardSubheading" class="text-white-50 mb-0">Loading your workspace...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- This line starts the summary cards row. -->
+            <div class="row g-4 mb-4" id="summaryCardsRow">
+                <!-- This line creates the doctors summary card column. -->
+                <div class="col-md-4">
+                    <!-- This line starts the doctors summary card. -->
+                    <div class="card border-0 shadow-sm summary-card">
+                        <!-- This line starts the card body. -->
+                        <div class="card-body">
+                            <!-- This line shows the card label. -->
+                            <p class="card-label">Doctors</p>
+                            <!-- This line shows the card count. -->
+                            <h3 id="doctorsCount" class="fw-bold">0</h3>
+                            <!-- This line shows the card icon. -->
+                            <i class="fa-solid fa-user-doctor card-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- This line creates the appointments summary card column. -->
+                <div class="col-md-4">
+                    <!-- This line starts the appointments summary card. -->
+                    <div class="card border-0 shadow-sm summary-card">
+                        <!-- This line starts the card body. -->
+                        <div class="card-body">
+                            <!-- This line shows the card label. -->
+                            <p class="card-label">Appointments</p>
+                            <!-- This line shows the card count. -->
+                            <h3 id="appointmentsCount" class="fw-bold">0</h3>
+                            <!-- This line shows the card icon. -->
+                            <i class="fa-solid fa-calendar-check card-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- This line creates the profile summary card column. -->
+                <div class="col-md-4">
+                    <!-- This line starts the profile summary card. -->
+                    <div class="card border-0 shadow-sm summary-card">
+                        <!-- This line starts the card body. -->
+                        <div class="card-body">
+                            <!-- This line shows the card label. -->
+                            <p class="card-label">Profile</p>
+                            <!-- This line shows the card count as the user role. -->
+                            <h3 id="profileRole" class="fw-bold">-</h3>
+                            <!-- This line shows the card icon. -->
+                            <i class="fa-solid fa-id-card card-icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- This line creates a message box for dashboard actions. -->
+            <div id="dashboardMessage" class="alert d-none" role="alert"></div>
+
+            <!-- This line starts the admin statistics row. -->
+            <div class="row g-4 mb-4 admin-only d-none" id="adminStatsRow"></div>
+
+            <!-- This line starts the doctor management and booking row. -->
+            <div class="row g-4 mb-4">
+                <!-- This line creates the form panel column. -->
+                <div class="col-lg-4">
+                    <!-- This line starts the patient booking card. -->
+                    <div class="card border-0 shadow-sm patient-only d-none" id="bookingCard">
+                        <!-- This line starts the card body. -->
+                        <div class="card-body p-4">
+                            <!-- This line shows the booking card title. -->
+                            <h4 class="fw-bold mb-3">Book Appointment</h4>
+                            <!-- This line starts the booking form. -->
+                            <form id="appointmentForm" novalidate>
+                                <!-- This line creates the doctor selection field. -->
+                                <div class="mb-3">
+                                    <label for="appointmentDoctor" class="form-label">Doctor</label>
+                                    <select id="appointmentDoctor" class="form-select"></select>
+                                </div>
+                                <!-- This line creates the date field. -->
+                                <div class="mb-3">
+                                    <label for="appointmentDate" class="form-label">Date</label>
+                                    <input type="date" id="appointmentDate" class="form-control">
+                                </div>
+                                <!-- This line creates the time field. -->
+                                <div class="mb-3">
+                                    <label for="appointmentTime" class="form-label">Time</label>
+                                    <input type="time" id="appointmentTime" class="form-control">
+                                </div>
+                                <!-- This line creates the reason field. -->
+                                <div class="mb-3">
+                                    <label for="appointmentReason" class="form-label">Reason</label>
+                                    <textarea id="appointmentReason" class="form-control" rows="3" placeholder="Enter appointment reason"></textarea>
+                                </div>
+                                <!-- This line creates the booking submit button. -->
+                                <button type="submit" class="btn btn-primary w-100"><i class="fa-solid fa-calendar-plus me-2"></i>Book Now</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- This line starts the admin doctor form card. -->
+                    <div class="card border-0 shadow-sm admin-only d-none" id="doctorFormCard">
+                        <!-- This line starts the card body. -->
+                        <div class="card-body p-4">
+                            <!-- This line shows the doctor form title. -->
+                            <h4 id="doctorFormTitle" class="fw-bold mb-3">Add Doctor</h4>
+                            <!-- This line starts the doctor form. -->
+                            <form id="doctorForm" novalidate>
+                                <!-- This line stores the current doctor ID for edit mode. -->
+                                <input type="hidden" id="doctorId">
+                                <!-- This line creates the doctor name field. -->
+                                <div class="mb-3">
+                                    <label for="doctorName" class="form-label">Doctor Name</label>
+                                    <input type="text" id="doctorName" class="form-control" placeholder="Enter doctor name">
+                                </div>
+                                <!-- This line creates the specialization field. -->
+                                <div class="mb-3">
+                                    <label for="doctorSpecialization" class="form-label">Specialization</label>
+                                    <input type="text" id="doctorSpecialization" class="form-control" placeholder="Enter specialization">
+                                </div>
+                                <!-- This line creates the schedule field. -->
+                                <div class="mb-3">
+                                    <label for="doctorSchedule" class="form-label">Availability Schedule</label>
+                                    <input type="text" id="doctorSchedule" class="form-control" placeholder="Example: Mon - Sat | 10:00 AM - 2:00 PM">
+                                </div>
+                                <!-- This line creates the fees field. -->
+                                <div class="mb-3">
+                                    <label for="doctorFees" class="form-label">Consultation Fee</label>
+                                    <input type="number" id="doctorFees" class="form-control" placeholder="Enter consultation fee">
+                                </div>
+                                <!-- This line starts the doctor form action buttons. -->
+                                <div class="d-flex gap-2">
+                                    <button type="submit" class="btn btn-primary flex-grow-1"><i class="fa-solid fa-floppy-disk me-2"></i>Save</button>
+                                    <button type="button" id="doctorCancelButton" class="btn btn-outline-secondary d-none">Cancel</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- This line creates the doctor list panel column. -->
+                <div class="col-lg-8">
+                    <!-- This line starts the doctor list card. -->
+                    <div class="card border-0 shadow-sm">
+                        <!-- This line starts the card body. -->
+                        <div class="card-body p-4">
+                            <!-- This line shows the doctor list title. -->
+                            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+                                <h4 class="fw-bold mb-0">Available Doctors</h4>
+                                <span class="text-muted small">Fetched dynamically from DynamoDB</span>
+                            </div>
+                            <!-- This line creates the container where doctor cards will be rendered. -->
+                            <div class="row g-3" id="doctorList"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- This line starts the appointments history and reports section. -->
+            <div class="row">
+                <!-- This line creates the appointments table column. -->
+                <div class="col-12">
+                    <!-- This line starts the appointments card. -->
+                    <div class="card border-0 shadow-sm">
+                        <!-- This line starts the card body. -->
+                        <div class="card-body p-4">
+                            <!-- This line starts the table title row. -->
+                            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+                                <!-- This line shows the table title. -->
+                                <h4 id="appointmentsTableTitle" class="fw-bold mb-0">Appointment History</h4>
+                                <!-- This line shows the table subtitle. -->
+                                <span class="text-muted small">Cancel appointments directly from the list below</span>
+                            </div>
+                            <!-- This line creates the responsive table wrapper. -->
+                            <div class="table-responsive">
+                                <!-- This line starts the appointments table. -->
+                                <table class="table align-middle table-hover">
+                                    <!-- This line starts the table header. -->
+                                    <thead class="table-light" id="appointmentsHead"></thead>
+                                    <!-- This line starts the table body that JavaScript will fill dynamically. -->
+                                    <tbody id="appointmentsBody"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- This line loads Bootstrap JavaScript for interactive components. -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- This line loads the shared frontend JavaScript file. -->
+    <script src="/js/script.js"></script>
+</body>
+</html>

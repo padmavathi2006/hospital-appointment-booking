@@ -1,0 +1,29 @@
+services:
+  dynamodb:
+    image: amazon/dynamodb-local:latest
+    container_name: hospital-dynamodb
+    user: root
+    command: "-jar DynamoDBLocal.jar -sharedDb -dbPath /home/dynamodblocal/data/"
+    ports:
+      - "8000:8000"
+    volumes:
+      - dynamodb-data:/home/dynamodblocal/data
+    restart: unless-stopped
+
+  app:
+    build: .
+    container_name: hospital-app
+    depends_on:
+      - dynamodb
+    ports:
+      - "3100:3100"
+    environment:
+      PORT: 3100
+      AWS_REGION: us-east-1
+      AWS_ACCESS_KEY_ID: dummy
+      AWS_SECRET_ACCESS_KEY: dummy
+      AWS_DYNAMODB_ENDPOINT: http://dynamodb:8000
+    restart: unless-stopped
+
+volumes:
+  dynamodb-data:
